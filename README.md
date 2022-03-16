@@ -1,0 +1,1 @@
+git rm --cashed node_modules -r # 스테이징에 add한 정보 삭제
