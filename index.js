@@ -3,17 +3,16 @@ const bodyParser = require("body-parser");
 const app = express();
 const port = 3000;
 const { User } = require("./models/User");
-const { url } = require("./mongodb.js");
+const { mongoURI } = require("./config/key");
 
 
-console.log(url);
 // application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({extended: true}));
 // application/json
 app.use(bodyParser.json());
 
 const mongoose = require("mongoose");
-mongoose.connect(url, {
+mongoose.connect(mongoURI, {
     useNewUrlParser: true, useUnifiedTopology: true
 }).then(() => console.log("MongoDB Connected..."))
   .catch(err => console.log(err));
